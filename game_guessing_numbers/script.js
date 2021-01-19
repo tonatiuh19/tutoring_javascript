@@ -19,7 +19,19 @@ document.querySelector('.check').addEventListener('click', function(){
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
         }
-    }else if(guess < generalNumber){
+    }else if(guess !== generalNumber){
+        if(score <= 0){
+            guess > generalNumber ? document.querySelector('.message').textContent = 'The number is High' : document.querySelector('.message').textContent = 'The number is low';
+            document.querySelector('.message').textContent = 'You lose :(';
+            document.querySelector('body').style.backgroundColor ='#b34747';
+        }else{
+            document.querySelector('.message').textContent = 'The number is low';
+            score--;
+            document.querySelector('.score').textContent = score;
+        }
+    }
+    
+    /*else if(guess < generalNumber){
         if(score <= 0){
             document.querySelector('.message').textContent = 'You lose :(';
             document.querySelector('body').style.backgroundColor ='#b34747';
@@ -37,7 +49,7 @@ document.querySelector('.check').addEventListener('click', function(){
             score--;
             document.querySelector('.score').textContent = score;
         }
-    }
+    }*/
 });
 
 document.querySelector('.again').addEventListener('click', function(){
